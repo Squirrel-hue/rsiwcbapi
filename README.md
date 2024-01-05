@@ -41,8 +41,8 @@ assist with extracting this information.
 ## Get Payment Methods
 
 ``` r
-api_key = ""
-secret_key = ""
+api_key <- rstudioapi::askForPassword(prompt = "Please Provide API Key")
+secret_key <- rstudioapi::askForPassword(prompt = "Please Provide API Secret Key")
 
 list_payment_methods_var <- interact_SWCB_API_keys(api_key = api_key,
                                             secret_key = secret_key,
