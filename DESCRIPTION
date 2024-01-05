@@ -7,7 +7,11 @@ Authors@R:
            email = "gus_borstad@hotmail.com",
            role = c("aut", "cre"))
 Maintainer: <gus_borstad@hotmail.com>
-Description: What the package does (one paragraph).
+Description: Implements authorization and other functions to trade crypto using 
+    the Sign-In with Coinbase API.  There is a general function that permits
+    accessing of API endpoints.
+    This package is offered as is without any promise or guarantee of suitability
+    for any given purpose.  Test it out with small money values.
 Depends: R (>= 4.1)
 License: GPL-3
 Encoding: UTF-8

@@ -21,8 +21,8 @@ It is assumed that API key and the secret key is known.  Add them in the place
 of "" below.
 
 ``` r
-api_key = ""
-secret_key = ""
+api_key <- rstudioapi::askForPassword(prompt = "Please Provide API Key")
+secret_key <- rstudioapi::askForPassword(prompt = "Please Provide API Secret Key")
 
 list_accounts_var <- interact_SWCB_API_keys(api_key = api_key,
                                             secret_key = secret_key,
