@@ -1,8 +1,8 @@
 # Deposit Funds to Coinbase Using Sign In with Coinbase API
 
-Note: **I have not tested any of this.  This is offered without any guarantee.**
-When I have additional time after the January 12, 2024, I will test this further.
-Until then, it is meant as a sketch of a solution.
+**Note: I have not tested any of this.  This is offered without any guarantee.**
+**When I have additional time after the January 12, 2024, I will test this**
+**further.  Until then, it is meant as a sketch of a solution.**
 
 ## Basic Procedure
 
