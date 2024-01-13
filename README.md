@@ -8,17 +8,27 @@
 
 The basic process is as follows:
             
-1. Know the API key and the secret key.  I am not yet sure if this will be the same 
-as the Advanced Trade API.
+1. Know the API key and the secret key.  You can use the same Api Keys and Secret Keys as accounts that are generated when logged into your Coinbase acount under "Settings >> API". Make sure that the following permissions are granted:
+
+  - `wallet:accounts:read`
+  - `wallet:deposits:create`
+  - `wallet:deposits:read`
+  - `wallet:payment-methods:read`
+
 Make sure that proper care is taken to safeguard the secret key.
-2. Get payment account information (it is assumed that this has already been added to Coinbase)
+
+2. Get payment account information (it is assumed that this has already been added to Coinbase).
+
 3. Get account information of the account into which you wish to deposit funds.
+
 4. Submit Funds Transfer 
 
 ## List Accounts 
 
 It is assumed that API key and the secret key is known.  Add them in the place 
 of "" below.
+
+Make sure that you have access to `wallet:accounts:read` in for the api key for which you are seeking to access data.
 
 ``` r
 api_key <- rstudioapi::askForPassword(prompt = "Please Provide API Key")
