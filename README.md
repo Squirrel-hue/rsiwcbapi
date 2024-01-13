@@ -40,13 +40,11 @@ list_accounts_var <- interact_SWCB_API_keys(api_key = api_key,
                                             reqPath = "accounts")
 ```
 
-Here we need to extract the information from the variable `list_variable_var`  
-The proper account will need to be identified if there is more than one.
-What we need here is the account id.
-
-I do not have access the Coinbase API since I am traveling.  Some of the documentation
-in the [rcbatapi repository](https://github.com/Squirrel-hue/rcbatapi) might 
-assist with extracting this information.
+Here we need to extract the information from the variable 
+`list_variable_var$data` and choose the index `n` that corresponds to the account into which you wish to deposit.   The proper account will need to be identified 
+if there is more than one.
+The variable will be `list_accounts_var$data[[n]]$id`, where `n` is a number
+that must be assigned or substituted into this expression. 
 
 ## Get Payment Methods
 
@@ -65,7 +63,9 @@ list_payment_methods_var
 Once again, you will receive a list of possible payment methods.  I am unable to
 access the API right now, so I will need to examine the format more in terms of 
 how to extract the information.  But the id for all the payment methods should 
-in principle be included in this `list_payment_methods_var`
+in principle be included in this `list_payment_methods_var$data`
+Again, once the proper index `n` for the payment method is identified, the id 
+can be found at  `list_payment_methods_var[[n]]$id`
 
 ## Deposit
 
@@ -79,8 +79,10 @@ permit the deposit an amount of $10 in USD to an account to be specified.
 ``` r
 amount <- "10"
 currency <- "USD"
-payment_method <- "" #Use payment method id from above.
-account_deposit_id <- "" #Use account id from above for account into which deposit was desired.
+#Use payment method id from above for account into which deposit was desired.
+payment_method <- list_payment_methods_var$data[[n]]$id.
+#Use account id from above for account into which deposit was desired.
+account_deposit_id <- list_accounts_var$data[[n]]$id 
 
 payload <- paste0('{\"amount\":\"',amount,'\",\"currency\":\"',currency,'\",\"payment_method\":\"',payment_method,'\"}')
 
@@ -93,4 +95,4 @@ rsiwcbapi::interact_SWCB_API_keys(api_key = api_key,
 
 ```
 
-**I have not tested any of this.  This is offered without any guarantee.**
+**I have tested this code.  All the same it is offered without any guarantee or promise of suitability for any given purpose.**
